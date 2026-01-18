@@ -1,0 +1,8 @@
+meshio
+pathlib
+matplotlib
+numpy
+logging
+argparse
+opencv-python
+pytest

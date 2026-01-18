@@ -1,0 +1,332 @@
+commit b5eb4e170b023b74815f0246e966b62b330a2e9f
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Wed Jan 22 13:19:25 2025 +0100
+
+    FINAL
+
+commit 4bf18ccd08e9f5b23a0c2821bcfcb7013328daa5
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Wed Jan 22 12:58:13 2025 +0100
+
+    laget tester for main
+
+commit dca9550d0ee1f9e057d3c9e9842a9bec08d9e8fc
+Merge: ab4750c 9a49157
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Tue Jan 21 23:06:05 2025 +0100
+
+    Merge branch 'main' of gitlab.com:inf20200/oljesol
+
+commit ab4750c85e3a74a58756f3f4b04b27cfdfc8dee2
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Tue Jan 21 23:05:51 2025 +0100
+
+    fix
+
+commit 9a49157bfc86f5e134c20a552336bcd79e255277
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Mon Jan 20 13:15:39 2025 +0100
+
+    lagde test main fil
+
+commit 4f3a690aae6d361e2ec29c32ffd7c82ef679cfd2
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Mon Jan 20 13:10:03 2025 +0100
+
+    lagt test simulator inn i test mappa
+
+commit f1bbdaf816b029561281f8798e1ed469ae45fa72
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Mon Jan 20 13:04:04 2025 +0100
+
+    cells testing
+
+commit 5f53aa78f1f676f93e13e89c1f737fc868923ef9
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Mon Jan 20 12:58:28 2025 +0100
+
+    small fix
+
+commit 3f497f698b2086939a0ffda0ef2958f7ec00dd28
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Mon Jan 20 12:53:44 2025 +0100
+
+    Normal validation fix
+
+commit 17e548465898d59f82970ac5ed40a05a4013a96b
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Sun Jan 19 16:47:11 2025 +0100
+
+    readability
+
+commit a10e1c7e7dd15f83a6d41fcb0d4a74a24d7c44ed
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Sun Jan 19 13:28:18 2025 +0100
+
+    Docstring changes
+
+commit be480549bcc8b52c942d19751cdb65d002ef4cc4
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Sat Jan 18 22:47:15 2025 +0100
+
+    better calculation
+
+commit fbe56be0c23de8ea277c908a594908dc3f804347
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Thu Jan 16 14:25:18 2025 +0100
+
+    laget alle testene for simulator
+
+commit 017ce3d3b077abd48101bd56e6af17e86e49b86f
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Thu Jan 16 13:54:25 2025 +0100
+
+    laget test for flux
+
+commit 758029194304fad504015b066c95ea43dee2d442
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Thu Jan 16 10:05:04 2025 +0100
+
+    + _load_restart_file()
+
+commit c9215000285bdbd7bd7d3837e38650d6757e8cf5
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Wed Jan 15 13:06:36 2025 +0100
+
+    test for velocity
+
+commit 09c82d7a4de33468835d916fde1a297febe76f0d
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Wed Jan 15 12:52:45 2025 +0100
+
+    Prøver med testing
+
+commit 33609bf1619ede85a0aed652762e3ab015e4739e
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Wed Jan 15 12:24:32 2025 +0100
+
+    navnebytte
+
+commit 6276bff04ff8b2002a87798523c66f08bf49add6
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Wed Jan 15 12:21:48 2025 +0100
+
+    testfil
+
+commit ae5b63da23dc3b76761862e1d7deeaf7affcac15
+Merge: 36781a0 9cf5396
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Wed Jan 15 12:07:19 2025 +0100
+
+    Merge branch 'main' of gitlab.com:inf20200/oljesol
+
+commit 9cf5396589c922121e8d3169c0825d2b636588ab
+Merge: 35e3f13 d012aaa
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Wed Jan 15 12:05:22 2025 +0100
+
+    Merge branch 'main' of gitlab.com:inf20200/oljesol
+
+commit 35e3f13765460eb9ee721ef115f3082a8144b8f3
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Wed Jan 15 12:05:04 2025 +0100
+
+    laget test for oil distrubution
+
+commit 36781a0d55a52debf1534b97ffb3e71032133dc3
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Wed Jan 15 12:01:57 2025 +0100
+
+    + Docstrings
+
+commit d012aaa0c88fcf59cc7825ac7632f9daaaff3e02
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Tue Jan 14 12:52:06 2025 +0100
+
+    changed --config to --config_file as in the task description
+
+commit a5e7552f0837de6021294001dad9ba376718e485
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Tue Jan 14 12:33:58 2025 +0100
+
+    La til noen getters
+
+commit fe3a0ac76f5958cdcd5a1b186eb506a25f745e03
+Merge: 0c47b03 15c6dd5
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Tue Jan 14 11:45:37 2025 +0100
+
+    Merge branch 'main' of gitlab.com:inf20200/oljesol
+
+commit 0c47b0385f3dde48a09d44d807c118753df42919
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Tue Jan 14 11:45:06 2025 +0100
+
+    Logging + Lagring. + Video av alle bildene
+
+commit 15c6dd581046f73ed250972efded3fef72fe9bf9
+Merge: a66f9fe 4ab2227
+Author: Mehdi Jamali <cyrgold@gmail.com>
+Date:   Tue Jan 14 11:33:18 2025 +0100
+
+    Merge branch 'main' of ssh://gitlab.com/inf20200/oljesol
+
+commit a66f9feb3ae8e2861548588fb92b8484d083b62b
+Author: Mehdi Jamali <cyrgold@gmail.com>
+Date:   Tue Jan 14 11:33:10 2025 +0100
+
+    Add pytest configuration and new simulation tests; remove unused test file
+
+commit 4ab222700451d222b40a390409a70f9df883b440
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Mon Jan 13 14:11:46 2025 +0100
+
+    Laget funskjonen step
+
+commit 2129ff49a6cf2fba04d1a03401ba1c85fc35732d
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Mon Jan 13 13:57:15 2025 +0100
+
+    Refactor neighbor computation and oil distribution initialization; improve naming conventions and output formatting
+
+commit 6c9c27d5569fb1cf4f53bf6c9982eec48822a7c2
+Author: Mehdi Jamali <cyrgold@gmail.com>
+Date:   Mon Jan 13 13:36:32 2025 +0100
+
+    Refactor simulation configuration and visualization; implement config validation and update initialization logic
+
+commit 655c66d769c4c5376c66273d58d730f848f451c3
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Mon Jan 13 13:03:03 2025 +0100
+
+    Visualisator som kan plotte
+
+commit 5d9606f4d38a5aef2ec985a3936a080c7992ca44
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Mon Jan 13 12:36:58 2025 +0100
+
+    Visualizer, som skal plotte og lagre bilder, og lagre video
+
+commit 96a7f8abfe04de4c4edc982f91dc5b63c63246c8
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Mon Jan 13 12:33:45 2025 +0100
+
+    Trenger ikke geometri for Line
+
+commit c53f13331aa2f262e343895ba51574694379b875
+Author: Mehdi Jamali <cyrgold@gmail.com>
+Date:   Fri Jan 10 13:50:43 2025 +0100
+
+    Implement oil distribution initialization and flux computation in simulator class
+
+commit efd8caf105d83b5e46f61d29ddacb32d418b8b9a
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Fri Jan 10 09:46:27 2025 +0100
+
+    oppdatert etter plan
+
+commit 2232ae8d45ae9152436f78ed66f3792bacd12df4
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Thu Jan 9 12:41:48 2025 +0100
+
+    temp funksjoner vi må lage
+
+commit 8423642d09266e7c11d4148630b0b16ec1d434ca
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Thu Jan 9 12:36:12 2025 +0100
+
+    Oppdatert requirements
+
+commit 70db443389692750b6fb4b5cc9701a58ff750111
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Thu Jan 9 12:35:53 2025 +0100
+
+    Simulator classe, trengs å implementere
+
+commit 9944a604f626bccc98c92646a600ffeb67730bbf
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Thu Jan 9 11:22:58 2025 +0100
+
+    Points variabel til cellene
+
+commit 6db03204020b59dfdbe17badac419a4c0d23dfb0
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Thu Jan 9 11:16:48 2025 +0100
+
+    Variabler og funksjoner for å regne ut geometrien til cellene
+
+commit c4e5e40df8a9360e19556f691a1ec5a9fc734eb4
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Thu Jan 9 09:57:34 2025 +0100
+
+    cleanup
+
+commit 9757cd487f877ef331188547fe3cd580bf6a210d
+Merge: 6f865c7 a513d88
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Thu Jan 9 09:55:16 2025 +0100
+
+    Merge branch 'main' of gitlab.com:inf20200/oljesol
+
+commit 6f865c790b174410b280e26369d77b945f3e7a79
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Thu Jan 9 09:54:01 2025 +0100
+
+    packages
+
+commit a513d88a8752188731591f5a8bb0ef8bb50e98d6
+Merge: b1c6626 a7bb639
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Wed Jan 8 13:31:16 2025 +0100
+
+    Merge branch 'main' of gitlab.com:inf20200/oljesol
+
+commit b1c66264400ba5376be9deb260c743b4f276c1c7
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Wed Jan 8 13:31:11 2025 +0100
+
+    funksjon med tiden t
+
+commit a7bb639ff3dc9d8b4ec3c76fbdc0413cfafd4804
+Merge: 89b81b0 b06cdc0
+Author: Mehdi Jamali <cyrgold@gmail.com>
+Date:   Wed Jan 8 13:21:50 2025 +0100
+
+    Merge branch 'main' of ssh://gitlab.com/inf20200/oljesol
+
+commit 89b81b03b5039c4ecbba7bb1ac206169ab2bb413
+Author: Mehdi Jamali <cyrgold@gmail.com>
+Date:   Wed Jan 8 12:31:45 2025 +0100
+
+    Add flow field visualization to oil spill function
+
+commit b06cdc010b6f617f56c98a0f82fad3bc94d84605
+Merge: 670b625 de78823
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Tue Jan 7 13:00:17 2025 +0100
+
+    Merge branch 'main' of gitlab.com:inf20200/oljesol
+
+commit 670b625a469ca66b1f01136efa7fbeff58dcc5bc
+Author: Ole Andreas Grøtting <ole.andreas.grotting@nmbu.no>
+Date:   Tue Jan 7 13:00:03 2025 +0100
+
+    sync
+
+commit de78823a4bf4a49a33e50a5120297499f2be82ea
+Author: Mehdi Jamali <cyrgold@gmail.com>
+Date:   Tue Jan 7 12:41:34 2025 +0100
+
+    Add oil spill function to compute oil distribution
+
+commit 747a9cfcfef379a9093ba6cb76ce55cc532629b1
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Tue Jan 7 11:14:06 2025 +0100
+
+    Lese inn mesh, og finne naboes
+
+commit 709b9427a0ca633d9dc456466ea075e857ab81d8
+Author: Jørgen <jorgen.svendsli@nmbu.no>
+Date:   Mon Jan 6 12:39:04 2025 +0100
+
+    initial commit
