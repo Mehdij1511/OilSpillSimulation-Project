@@ -1,0 +1,12 @@
+[settings]
+nSteps = 300
+
+tEnd = 0.5
+
+[geometry]
+meshName = "bay.msh"
+borders = [ [0.0, 0.45], [0.0, 0.2] ]
+
+[IO]
+logName = "config"
+writeFrequency = 10

@@ -1,0 +1,13 @@
+[settings]
+nSteps = 500
+tStart = 0.1
+tEnd = 0.5
+
+[geometry]
+meshName = "bay.msh"
+borders = [ [0.0, 0.45], [0.0, 0.2] ]
+
+[IO]
+logName = "t0.1 to t1 - 500n"
+writeFrequency = 25
+restartFile = "input/state_0.100.txt"
