@@ -29,7 +29,7 @@ This README has been expanded with clearer instructions, configuration examples,
 
 ## Quick Start
 
-Requirements: Python 3.11 (uses `tomllib`) or change code to use `tomli` for older Python versions.
+Requirements: Python 3.11 (uses `tomllib`) or change code to use `tomli` for older Python versions. The repository now includes a tomli fallback in `main.py` so it can run on Python 3.8–3.11.
 
 Install and run:
 
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 python main.py --config input.toml
 ```
 
-If you prefer wider Python compatibility (3.8–3.10), update `main.py` to use the `tomli` package instead of the stdlib `tomllib` (see Troubleshooting below).
+If you prefer wider Python compatibility (3.8–3.10), the project falls back to `tomli` automatically; ensure `tomli` is present in your environment or in `requirements.txt`.
 
 ---
 
@@ -80,33 +80,43 @@ Running a simulation creates `output_<logName>/` with subfolders:
 - `output.avi` — AVI video created by `Visualizer.create_animation()` (if writeFrequency != 0)
 - `<logName>.log` — run log with info messages
 
-Example commands to turn frames into a GIF for embedding in reports:
+Below is an illustrative example visualization that lives in `docs/images/`:
+
+![Simulation example](docs/images/simulation_example.svg)
+
+### Visualization gallery (how-to and examples)
+
+- Example thumbnail above is a static SVG showing a mesh and a radial oil patch with a highlighted "fishing grounds" rectangle.
+
+- To produce real simulation frames and create an animation (GIF or MP4), run the simulation with `writeFrequency` set to a non-zero value and then use one of the conversion commands below.
+
+Create MP4 with ffmpeg:
 
 ```bash
-# using ImageMagick (install: apt install imagemagick)
-convert -delay 5 -loop 0 output_demo/img/plot_*.png docs/images/simulation_demo.gif
+ffmpeg -framerate 10 -pattern_type glob -i 'output_<logName>/img/plot_*.png' -c:v libx264 -pix_fmt yuv420p docs/images/simulation_demo.mp4
 ```
 
-If you don't have ImageMagick, use FFmpeg to make a video instead:
+Create an animated GIF with ImageMagick (or use ffmpeg -> gifsicle for better control):
 
 ```bash
-ffmpeg -framerate 10 -pattern_type glob -i 'output_demo/img/plot_*.png' -c:v libx264 -pix_fmt yuv420p output_demo/simulation_demo.mp4
+convert -delay 5 -loop 0 output_<logName>/img/plot_*.png docs/images/simulation_demo.gif
 ```
 
-Suggested README visualization workflow:
-1. Run `python main.py -c input.toml` with `writeFrequency` set to produce frames.
-2. Convert frames to GIF/MP4 as shown above.
-3. Add the generated GIF file to `docs/images/` and reference it in the README:
+Embed the resulting GIF in this README by adding (example already shown above):
 
 ```markdown
 ![Simulation demo](docs/images/simulation_demo.gif)
 ```
 
+Notes on visualization quality and scaling:
+- Visualizer currently expects oil amounts normalized between 0 and 1. If you change initialization or physics, scale values or update the colormap normalization in `src/Simulation/Visualizer.py` (lines around colorbar/Normalize).
+- The Visualizer uses matplotlib's `fill` per triangle which is simple and portable but not optimized for very large meshes. For publication-quality images consider rasterizing at higher DPI or using Geo-aware plotting libraries if you expand to real geographic coordinates.
+
 ---
 
 ## Troubleshooting & suggested improvements
 
-- tomllib vs tomli: `main.py` currently uses `tomllib` (Python 3.11+). To run on older python versions, replace the tomllib usage with `import tomli` and `tomli.load()` and add `tomli` to `requirements.txt`.
+- tomllib vs tomli: `main.py` now prefers `tomllib` (Python 3.11+) and falls back to `tomli` on older interpreters. Consider adding `tomli` to `requirements.txt` for clarity.
 
 - Requirements: `requirements.txt` lists unpinned packages. Consider pinning major versions or adding a `pyproject.toml`/`constraints.txt` for reproducibility.
 
@@ -129,9 +139,8 @@ Suggested README visualization workflow:
 
 If you'd like me to:
 
-- Add an example GIF to `docs/images` and embed it in this README,
-- Modify `main.py` to use `tomli` for backward compatibility,
-- Add a small GitHub Actions CI workflow (pytest), or
+- Generate a real simulation GIF/MP4 from `input.toml` and commit it to `docs/images/` and embed it in the README,
+- Add a small GitHub Actions CI workflow (pytest),
 - Move large assets to `releases/` and add a lightweight example mesh in repo,
 
 tell me which items and I will prepare a single PR with the changes.
