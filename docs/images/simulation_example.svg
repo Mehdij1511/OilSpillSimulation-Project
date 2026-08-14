@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <radialGradient id="g1" cx="40%" cy="35%" r="35%">
+      <stop offset="0%" stop-color="#ffffcc" />
+      <stop offset="40%" stop-color="#ffcc66" />
+      <stop offset="100%" stop-color="#660000" />
+    </radialGradient>
+    <style>
+      .tri { fill:none; stroke:#444; stroke-width:1 }
+      .o { fill:url(#g1); opacity:0.9 }
+      .bg { fill: #ffffff }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" class="bg"/>
+
+  <!-- simple mesh triangles -->
+  <polygon class="tri" points="50,500 200,120 350,500" />
+  <polygon class="tri" points="200,120 350,500 500,160" />
+  <polygon class="tri" points="350,500 650,500 500,160" />
+  <polygon class="tri" points="50,500 200,120 20,200" />
+  <polygon class="tri" points="650,500 700,250 500,160" />
+
+  <!-- oil distribution (radial gradient patch) -->
+  <ellipse class="o" cx="340" cy="260" rx="160" ry="120" />
+
+  <!-- labels and legend -->
+  <g font-family="Arial" font-size="14" fill="#222">
+    <text x="20" y="30">Oil Spill Simulation (example)</text>
+    <rect x="620" y="60" width="12" height="80" fill="#660000" />
+    <rect x="620" y="150" width="12" height="80" fill="#ffcc66" />
+    <rect x="620" y="240" width="12" height="80" fill="#ffffcc" />
+    <text x="640" y="75">High concentration</text>
+    <text x="640" y="165">Medium</text>
+    <text x="640" y="255">Low</text>
+  </g>
+
+  <!-- fishing grounds rectangle -->
+  <rect x="260" y="200" width="180" height="120" fill="none" stroke="#0077cc" stroke-dasharray="6" stroke-width="2" />
+  <text x="265" y="195" font-size="12" fill="#0077cc">Fishing grounds</text>
+
+</svg>
