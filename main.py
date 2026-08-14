@@ -1,10 +1,15 @@
 from src.Simulation.Simulator import simulator
 from src.Simulation.Visualizer import Visualizer
 from pathlib import Path
-import tomllib
 import logging
 import argparse
 import os
+
+# TOML loader compatibility: prefer stdlib tomllib (Py 3.11+), fall back to tomli for older versions
+try:
+    import tomllib
+except ModuleNotFoundError:
+    import tomli as tomllib
 
 class SimulationConfig:
     def __init__(self, nSteps, tStart, tEnd, meshName, borders, logName, writeFrequency = None, restartFile = None, base_dir = None):
