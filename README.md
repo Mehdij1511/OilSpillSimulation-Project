@@ -29,7 +29,7 @@ This README has been expanded with clearer instructions, configuration examples,
 
 ## Quick Start
 
-Requirements: Python 3.11 (uses `tomllib`) or change code to use `tomli` for older Python versions. The repository now includes a tomli fallback in `main.py` so it can run on Python 3.8–3.11.
+Requirements: Python 3.11 (uses `tomllib`) or change code to use `tomli` for older Python versions. The repository includes a tomli fallback in `main.py` so it can run on Python 3.8–3.11.
 
 Install and run:
 
@@ -80,32 +80,43 @@ Running a simulation creates `output_<logName>/` with subfolders:
 - `output.avi` — AVI video created by `Visualizer.create_animation()` (if writeFrequency != 0)
 - `<logName>.log` — run log with info messages
 
-Below is an illustrative example visualization that lives in `docs/images/`:
+### Real simulation output (included)
 
-![Simulation example](docs/images/simulation_example.svg)
+This repository already contains a recorded run produced by the simulation. The real animation file is:
+
+- output_t0 to t0.5 - 500n/output.avi
+
+You can view it on GitHub (click to download/play):
+https://github.com/Mehdij1511/OilSpillSimulation-Project/blob/main/output_t0%20to%20t0.5%20-%20500n/output.avi
+
+If you want to embed a still frame in the README, extract a frame from the AVI and commit it to `docs/images/` (example commands below). The AVI file is a faithful, real output produced by the code — use it as the canonical visualization.
+
 
 ### Visualization gallery (how-to and examples)
 
-- Example thumbnail above is a static SVG showing a mesh and a radial oil patch with a highlighted "fishing grounds" rectangle.
-
-- To produce real simulation frames and create an animation (GIF or MP4), run the simulation with `writeFrequency` set to a non-zero value and then use one of the conversion commands below.
-
-Create MP4 with ffmpeg:
+- Example thumbnail (real outputs) — to include a still image in the README, extract a frame using ffmpeg and commit it. Example extraction command:
 
 ```bash
-ffmpeg -framerate 10 -pattern_type glob -i 'output_<logName>/img/plot_*.png' -c:v libx264 -pix_fmt yuv420p docs/images/simulation_demo.mp4
+# extract a representative frame (timestamp 00:00:00.10) and save as PNG
+ffmpeg -i "output_t0 to t0.5 - 500n/output.avi" -ss 0.1 -vframes 1 docs/images/simulation_frame.png
 ```
 
-Create an animated GIF with ImageMagick (or use ffmpeg -> gifsicle for better control):
+- To produce a high-quality MP4 from frames (or from the AVI), use:
+
+```bash
+# from PNG frames
+ffmpeg -framerate 10 -pattern_type glob -i 'output_<logName>/img/plot_*.png' -c:v libx264 -pix_fmt yuv420p docs/images/simulation_demo.mp4
+
+# or re-encode the existing AVI to MP4
+ffmpeg -i "output_t0 to t0.5 - 500n/output.avi" -c:v libx264 -crf 23 -preset medium docs/images/simulation_demo.mp4
+```
+
+- To create an animated GIF for embedding in the README:
 
 ```bash
 convert -delay 5 -loop 0 output_<logName>/img/plot_*.png docs/images/simulation_demo.gif
-```
-
-Embed the resulting GIF in this README by adding (example already shown above):
-
-```markdown
-![Simulation demo](docs/images/simulation_demo.gif)
+# or use ffmpeg+gifsicle for better quality
+ffmpeg -i docs/images/simulation_demo.mp4 -vf "fps=10,scale=640:-1:flags=lanczos" -f gif - | gifsicle --optimize=3 > docs/images/simulation_demo.gif
 ```
 
 Notes on visualization quality and scaling:
@@ -120,7 +131,7 @@ Notes on visualization quality and scaling:
 
 - Requirements: `requirements.txt` lists unpinned packages. Consider pinning major versions or adding a `pyproject.toml`/`constraints.txt` for reproducibility.
 
-- Large files: `bay.msh` and `Report.pdf` are large blobs — consider moving them to GitHub Releases or use Git LFS so repo clones remain lightweight.
+- Large files: `bay.msh`, `Report.pdf`, and the included `output.avi` are sizable — consider moving them to GitHub Releases or use Git LFS so repo clones remain lightweight.
 
 - Tests: `tests/` is present but empty — add pytest-based tests for Mesh reading, neighbor computation, and a short simulation run (deterministic with small mesh) to prevent regressions.
 
@@ -139,8 +150,9 @@ Notes on visualization quality and scaling:
 
 If you'd like me to:
 
-- Generate a real simulation GIF/MP4 from `input.toml` and commit it to `docs/images/` and embed it in the README,
+- Extract a representative frame from the included `output.avi`, commit the PNG to `docs/images/`, and embed it in this README,
+- Generate a GIF/MP4 from the included run and commit it to `docs/images/`,
 - Add a small GitHub Actions CI workflow (pytest),
 - Move large assets to `releases/` and add a lightweight example mesh in repo,
 
-tell me which items and I will prepare a single PR with the changes.
+I can prepare a single PR that includes the extracted images and README updates.
