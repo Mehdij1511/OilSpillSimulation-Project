@@ -116,10 +116,6 @@ The project produces image frames and animation output to visualize how the spil
 ### Later stage
 ![Oil reaching the fishing grounds region](https://raw.githubusercontent.com/Mehdij1511/OilSpillSimulation-Project/6a26bed50b39df0b333c722c5659e397230ba951/output_t0%20to%20t0.5%20-%20500n/img/plot_0.500.png)
 
-### Output animation
-link to the AVI file: 
-(https://github.com/Mehdij1511/OilSpillSimulation-Project/blob/6a26bed50b39df0b333c722c5659e397230ba951/output_t0%20to%20t0.5%20-%20500n/output.avi)
-
 ---
 
 ## What I learned
