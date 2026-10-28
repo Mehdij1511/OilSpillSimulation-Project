@@ -1,37 +1,152 @@
-# Oil Spill Simulation Framework
+# Oil Spill Simulation Project
 
-## Overview
+A computational project developed during INF202 at NMBU to model how oil spreads in a coastal environment and estimate its impact on a defined fishing grounds area.
 
-A Python 2D mesh-based oil-spill simulator (student project from INF202, NMBU) that initializes a Gaussian spill on a triangular mesh and advances it with flux computations between mesh cells. The project is designed for experimenting with mesh-based advection of a scalar field (oil concentration), visualizing the spill evolution, and measuring contamination in user-defined zones ("fishing grounds").
+## About this project
 
-This README has been expanded with clearer instructions, configuration examples, and visualization guidance so other students and researchers can run experiments and include results in reports.
+This project was my first hands-on experience with scientific computing and numerical modeling. I built a simplified 2D oil spill simulation that represents a coastal region as a triangular mesh, tracks oil distribution over time, and visualizes how the spill evolves through the domain.
 
----
-
-## Features
-
-- Read .msh meshes using meshio and build triangle/line cell objects.
-- Initialize an oil spill (Gaussian) or load a restart state.
-- Time stepping with per-edge flux computations based on a simple velocity field.
-- Save per-step state files and PNG visualizations; optional AVI video creation with OpenCV.
-- Compute total oil mass inside a configurable rectangular "fishing grounds" area.
-
-### Notable files
-- `main.py` — CLI, config parsing, run loop and output management.
-- `src/Simulation/Simulator.py` — simulation algorithm and time stepping.
-- `src/Simulation/mesh.py` — mesh reader and cell construction (uses meshio).
-- `src/Simulation/cells.py` — Triangle and Line geometry primitives.
-- `src/Simulation/Visualizer.py` — plotting and video generation.
-- `input.toml` — example configuration file used by the CLI.
-- `bay.msh` — example mesh used for tests/demos (large binary).
+The goal was not to build a perfect ocean model, but to create a clear, practical simulation that demonstrates how computational methods can help analyze environmental risk and support decision-making.
 
 ---
 
-## Quick Start
+## Problem
 
-Requirements: Python 3.11 (uses `tomllib`) or change code to use `tomli` for older Python versions. The repository includes a tomli fallback in `main.py` so it can run on Python 3.8–3.11.
+Oil spills can cause severe ecological and economic damage. Once a spill occurs, the oil moves with the surrounding flow and may spread across large areas, threatening marine life, coastal regions, and fishing zones.
 
-Install and run:
+The challenge was to answer a few practical questions:
+- Where does the oil go?
+- How fast does it spread?
+- How much reaches a sensitive area?
+- Can this be visualized in a way that is understandable and useful?
+
+This project was designed to explore those questions using a simplified but meaningful simulation.
+
+---
+
+## My approach
+
+I modeled the environment as a triangular mesh and treated each triangle as a small computational cell. Each cell stores how much oil is currently present, and neighboring cells exchange oil based on a simple velocity field and shared geometry.
+
+The simulation:
+1. Loads a mesh from a `.msh` file
+2. Initializes oil near a source point
+3. Computes neighbor relationships
+4. Updates the oil distribution over time
+5. Measures the amount of oil inside a defined fishing grounds region
+6. Saves plots and output videos for analysis
+
+This approach turns the real-world phenomenon into a readable, testable computational model.
+
+---
+
+## What the project does
+
+- Reads triangular mesh geometry from a mesh file
+- Simulates the movement of oil across the domain
+- Uses a velocity field to drive transport between adjacent cells
+- Tracks oil amount over time
+- Identifies whether oil enters a specified protected area
+- Saves image frames and an animation video
+- Produces a log of simulation results for analysis
+
+---
+
+## Why this matters
+
+This project is a good example of how programming and scientific thinking can be combined to solve a real-world problem. Instead of just observing an environmental process, we can model it, study its behavior, and quantify its potential impact.
+
+For me, this project was valuable because it showed how simulations can be used as decision-support tools in fields like environmental science, risk analysis, and engineering.
+
+---
+
+## Technologies used
+
+- Python
+- NumPy
+- meshio
+- Matplotlib
+- OpenCV
+- TOML configuration
+- pathlib and argparse
+- logging for output tracking
+
+---
+
+## Project workflow
+
+```text
+Load mesh
+   ↓
+Initialize oil source
+   ↓
+Compute neighbors
+   ↓
+Simulate time-stepping
+   ↓
+Compute oil in fishing grounds
+   ↓
+Save visual outputs and logs
+```
+
+---
+
+## Key files
+
+- `main.py` — main simulation entry point
+- `src/Simulation/Simulator.py` — simulation logic and time stepping
+- `src/Simulation/mesh.py` — mesh loading and cell creation
+- `src/Simulation/Visualizer.py` — plotting and video generation
+- `input.toml` — configuration for a simulation run
+- `bay.msh` — sample mesh used by the project
+- `Report.pdf` — project documentation/report
+
+---
+
+## Visual results
+
+The project produces image frames and animation output to visualize how the spill evolves over time.
+
+### Initial state
+![Initial oil spill simulation](docs/images/simulation_start.png)
+
+### Intermediate spread
+![Oil spread across the mesh](docs/images/simulation_mid.png)
+
+### Later stage
+![Oil reaching the fishing grounds region](docs/images/simulation_end.png)
+
+> Replace the placeholder files above with your generated screenshots or extracted frames from the simulation video.
+
+---
+
+## Example output animation
+
+A recorded simulation output is included in the repository and can be used for demonstrations or report visuals.
+
+```text
+output_t0 to t0.5 - 500n/output.avi
+```
+
+This gives a real example of the simulation running over time and provides a useful visual artifact for presentations.
+
+---
+
+## What I learned
+
+This project taught me a lot about:
+- numerical simulation
+- mesh-based modeling
+- time-stepping methods
+- data visualization
+- environmental risk analysis
+- connecting mathematical ideas to practical code
+
+It was a strong introduction to scientific computing, and it helped me better understand how computational models are used to study real-world systems.
+
+---
+
+## Quick start
 
 ```bash
 python3.11 -m venv .venv
@@ -40,119 +155,50 @@ pip install -r requirements.txt
 python main.py --config input.toml
 ```
 
-If you prefer wider Python compatibility (3.8–3.10), the project falls back to `tomli` automatically; ensure `tomli` is present in your environment or in `requirements.txt`.
+This runs the simulation using the example configuration file and generates outputs in the project directory.
 
 ---
 
-## Configuration (example)
+## Why this project is important to me
 
-A minimal example TOML configuration to run the simulation. Place this in `input.toml` or pass a custom path with `-c`.
+This project represents one of my first steps toward building computational tools that solve meaningful problems. It combines programming, mathematics, environmental thinking, and visualization into a single, practical workflow.
 
-```toml
-[settings]
-nSteps = 100
-tStart = 0.0
-tEnd = 1.0
+It was not just a coding exercise — it was a way of turning a real-world issue into a model, an analysis, and a visual story.
 
-[geometry]
-meshName = "bay.msh"
-borders = [[0.2, 0.5], [0.2, 0.5]]  # x-range and y-range for fishing grounds
+---
 
-[IO]
-logName = "demo"
-writeFrequency = 10  # set to 0 to disable images/video
-restartFile = ""
+## Summary
+
+This oil spill simulation project models how an oil slick spreads across a spatial domain and estimates its impact on a sensitive fishing area. It uses a mesh-based computational approach and produces visual outputs that make the results understandable and useful.
+
+It is a simple but effective example of how code can be used to simulate and study complex environmental processes.
+
+---
+
+## Project structure
+
+```text
+OilSpillSimulation-Project/
+├── main.py
+├── input.toml
+├── requirements.txt
+├── bay.msh
+├── README.md
+├── Report.pdf
+├── src/
+│   └── Simulation/
+│       ├── Simulator.py
+│       ├── Visualizer.py
+│       ├── mesh.py
+│       └── cells.py
+├── docs/
+│   └── images/
+├── output_.../
+└── tests/
 ```
 
-Key fields:
-- `nSteps`: number of time steps (higher gives smaller dt)
-- `meshName`: path to the mesh file (relative paths resolved relative to the TOML file)
-- `borders`: [[x_min, x_max], [y_min, y_max]] rectangle for measuring oil in fishing grounds
-- `writeFrequency`: how often (in steps) to write images/states. 0 disables images/video.
-
 ---
 
-## Output and visualization
+## Final note
 
-Running a simulation creates `output_<logName>/` with subfolders:
-- `states/` — text files with per-cell oil amounts
-- `img/` — PNG frames created with `Visualizer.create_plot()`
-- `output.avi` — AVI video created by `Visualizer.create_animation()` (if writeFrequency != 0)
-- `<logName>.log` — run log with info messages
-
-### Real simulation output (included)
-
-This repository already contains a recorded run produced by the simulation. The real animation file is:
-
-- output_t0 to t0.5 - 500n/output.avi
-
-You can view it on GitHub (click to download/play):
-https://github.com/Mehdij1511/OilSpillSimulation-Project/blob/main/output_t0%20to%20t0.5%20-%20500n/output.avi
-
-If you want to embed a still frame in the README, extract a frame from the AVI and commit it to `docs/images/` (example commands below). The AVI file is a faithful, real output produced by the code — use it as the canonical visualization.
-
-
-### Visualization gallery (how-to and examples)
-
-- Example thumbnail (real outputs) — to include a still image in the README, extract a frame using ffmpeg and commit it. Example extraction command:
-
-```bash
-# extract a representative frame (timestamp 00:00:00.10) and save as PNG
-ffmpeg -i "output_t0 to t0.5 - 500n/output.avi" -ss 0.1 -vframes 1 docs/images/simulation_frame.png
-```
-
-- To produce a high-quality MP4 from frames (or from the AVI), use:
-
-```bash
-# from PNG frames
-ffmpeg -framerate 10 -pattern_type glob -i 'output_<logName>/img/plot_*.png' -c:v libx264 -pix_fmt yuv420p docs/images/simulation_demo.mp4
-
-# or re-encode the existing AVI to MP4
-ffmpeg -i "output_t0 to t0.5 - 500n/output.avi" -c:v libx264 -crf 23 -preset medium docs/images/simulation_demo.mp4
-```
-
-- To create an animated GIF for embedding in the README:
-
-```bash
-convert -delay 5 -loop 0 output_<logName>/img/plot_*.png docs/images/simulation_demo.gif
-# or use ffmpeg+gifsicle for better quality
-ffmpeg -i docs/images/simulation_demo.mp4 -vf "fps=10,scale=640:-1:flags=lanczos" -f gif - | gifsicle --optimize=3 > docs/images/simulation_demo.gif
-```
-
-Notes on visualization quality and scaling:
-- Visualizer currently expects oil amounts normalized between 0 and 1. If you change initialization or physics, scale values or update the colormap normalization in `src/Simulation/Visualizer.py` (lines around colorbar/Normalize).
-- The Visualizer uses matplotlib's `fill` per triangle which is simple and portable but not optimized for very large meshes. For publication-quality images consider rasterizing at higher DPI or using Geo-aware plotting libraries if you expand to real geographic coordinates.
-
----
-
-## Troubleshooting & suggested improvements
-
-- tomllib vs tomli: `main.py` now prefers `tomllib` (Python 3.11+) and falls back to `tomli` on older interpreters. Consider adding `tomli` to `requirements.txt` for clarity.
-
-- Requirements: `requirements.txt` lists unpinned packages. Consider pinning major versions or adding a `pyproject.toml`/`constraints.txt` for reproducibility.
-
-- Large files: `bay.msh`, `Report.pdf`, and the included `output.avi` are sizable — consider moving them to GitHub Releases or use Git LFS so repo clones remain lightweight.
-
-- Tests: `tests/` is present but empty — add pytest-based tests for Mesh reading, neighbor computation, and a short simulation run (deterministic with small mesh) to prevent regressions.
-
-- CI: Add a lightweight GitHub Actions workflow to run lint/pytest on push; include a matrix for Python versions if you broaden toml loader compatibility.
-
----
-
-## Development notes (for maintainers)
-
-- Relative path handling: `main.py` resolves mesh and restart file paths relative to the TOML directory — keep that in mind when invoking from other working directories.
-- Visualizer currently expects oil amounts normalized between 0 and 1 for colormap indexing. If you change initialization or physics, update the color scaling in `Visualizer.create_plot()`.
-
----
-
-## Contributing
-
-If you'd like me to:
-
-- Extract a representative frame from the included `output.avi`, commit the PNG to `docs/images/`, and embed it in this README,
-- Generate a GIF/MP4 from the included run and commit it to `docs/images/`,
-- Add a small GitHub Actions CI workflow (pytest),
-- Move large assets to `releases/` and add a lightweight example mesh in repo,
-
-I can prepare a single PR that includes the extracted images and README updates.
+This project is a good example of applied programming and modeling in a real-world context. It blends technical implementation with environmental problem-solving and helped me build confidence in using code as a tool for analysis and communication.
