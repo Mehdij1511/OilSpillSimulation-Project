@@ -116,22 +116,9 @@ The project produces image frames and animation output to visualize how the spil
 ### Later stage
 ![Oil reaching the fishing grounds region](https://raw.githubusercontent.com/Mehdij1511/OilSpillSimulation-Project/6a26bed50b39df0b333c722c5659e397230ba951/output_t0%20to%20t0.5%20-%20500n/img/plot_0.500.png)
 
-### Simulation log
-The project also records the evolution in a log file, which captures the changing state of the oil distribution during the simulation.
-
-[Simulation log](https://github.com/Mehdij1511/OilSpillSimulation-Project/blob/6a26bed50b39df0b333c722c5659e397230ba951/output_t0%20to%20t0.5%20-%20500n/t0%20to%20t0.5%20-%20500n.log)
-
----
-
-## Example output animation
-
-A recorded simulation output is included in the repository and can be used for demonstrations or report visuals.
-
-```text
-output_t0 to t0.5 - 500n/output.avi
-```
-
-This gives a real example of the simulation running over time and provides a useful visual artifact for presentations.
+### Output animation
+link to the AVI file: 
+(https://github.com/Mehdij1511/OilSpillSimulation-Project/blob/6a26bed50b39df0b333c722c5659e397230ba951/output_t0%20to%20t0.5%20-%20500n/output.avi)
 
 ---
 
