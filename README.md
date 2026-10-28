@@ -108,15 +108,18 @@ Save visual outputs and logs
 The project produces image frames and animation output to visualize how the spill evolves over time.
 
 ### Initial state
-![Initial oil spill simulation](docs/images/simulation_start.png)
+![Initial oil spill simulation](https://raw.githubusercontent.com/Mehdij1511/OilSpillSimulation-Project/6a26bed50b39df0b333c722c5659e397230ba951/output_t0%20to%20t0.5%20-%20500n/img/plot_0.000.png)
 
 ### Intermediate spread
-![Oil spread across the mesh](docs/images/simulation_mid.png)
+![Oil spread across the mesh](https://raw.githubusercontent.com/Mehdij1511/OilSpillSimulation-Project/6a26bed50b39df0b333c722c5659e397230ba951/output_t0%20to%20t0.5%20-%20500n/img/plot_0.250.png)
 
 ### Later stage
-![Oil reaching the fishing grounds region](docs/images/simulation_end.png)
+![Oil reaching the fishing grounds region](https://raw.githubusercontent.com/Mehdij1511/OilSpillSimulation-Project/6a26bed50b39df0b333c722c5659e397230ba951/output_t0%20to%20t0.5%20-%20500n/img/plot_0.500.png)
 
-> Replace the placeholder files above with your generated screenshots or extracted frames from the simulation video.
+### Simulation log
+The project also records the evolution in a log file, which captures the changing state of the oil distribution during the simulation.
+
+[Simulation log](https://github.com/Mehdij1511/OilSpillSimulation-Project/blob/6a26bed50b39df0b333c722c5659e397230ba951/output_t0%20to%20t0.5%20-%20500n/t0%20to%20t0.5%20-%20500n.log)
 
 ---
 
